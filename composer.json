@@ -8,6 +8,7 @@
             "email": "xkamen06@stud.fit.vutbr.cz"
         }
     ],
+    "license": "MIT",
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.1",
