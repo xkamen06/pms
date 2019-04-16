@@ -1,0 +1,20 @@
+{
+    "name": "xkamen06/pms",
+    "description": "Project Management System (web information system)",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Zdenek Kamensky",
+            "email": "xkamen06@stud.fit.vutbr.cz"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.1",
+        "laravel/framework": "5.5.*",
+        "predis/predis": "^1.1",
+        "roave/security-advisories": "dev-master"
+    }
+}
+
+
