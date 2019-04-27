@@ -13,8 +13,7 @@
     "require": {
         "php": ">=7.1",
         "laravel/framework": "5.5.*",
-        "predis/predis": "^1.1",
-        "roave/security-advisories": "dev-master"
+        "predis/predis": "^1.1"
     }
 }
 
