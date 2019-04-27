@@ -11,7 +11,7 @@ namespace xkamen06\pms;
 
 use Illuminate\Support\ServiceProvider;
 
-include __DIR__ . '/helpers/repositories.php';
+include __DIR__ . '/Helpers/repositories.php';
 
 /**
  * Class PMSServiceProvider
