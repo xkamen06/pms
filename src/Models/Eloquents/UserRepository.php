@@ -9,7 +9,7 @@
 
 namespace xkamen06\pms\Model\Eloquents;
 
-use App\Notifications\UserInformationNotification;
+use xkamen06\pms\Notifications\UserInformationNotification;
 use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;

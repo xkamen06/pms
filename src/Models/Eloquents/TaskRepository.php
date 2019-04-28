@@ -9,9 +9,9 @@
 
 namespace xkamen06\pms\Model\Eloquents;
 
-use App\Notifications\AddUserToNotification;
-use App\Notifications\DeleteProjectTeamTaskNotification;
-use App\Notifications\DeleteUserFromNotification;
+use xkamen06\pms\Notifications\AddUserToNotification;
+use xkamen06\pms\Notifications\DeleteProjectTeamTaskNotification;
+use xkamen06\pms\Notifications\DeleteUserFromNotification;
 use Illuminate\Support\Collection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use xkamen06\pms\Model\TaskInterface;

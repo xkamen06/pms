@@ -12,13 +12,22 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.1",
-        "laravel/framework": "5.5.*",
+        "laravel/framework": "^5.5",
         "predis/predis": "^1.1"
     },
     "autoload": {
         "psr-4": {
             "xkamen06\\pms\\Controllers\\": "src/Controllers/",
             "xkamen06\\pms\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "xkamen06\\pms\\PMSServiceProvider"
+            ],
+            "aliases": {
+            }
         }
     }
 }

@@ -171,7 +171,7 @@ class ProjectController
             $project = projectRepository()->getProjectById($projectId);
             return view('pms::Project.edit', [
                 'project' => $project,
-                'error' => trans('Project.edit.error_shortcut_exist')
+                'error' => trans('pms::Project.edit.error_shortcut_exist')
             ]);
         }
         Cache::flush();
@@ -241,7 +241,7 @@ class ProjectController
         $projectId = projectRepository()->createProject($request->all());
         if ($projectId === -1) {
             return view('pms::Project.create', [
-                'error' => trans('Project.create.error_shortcut_exist')
+                'error' => trans('pms::Project.create.error_shortcut_exist')
             ]);
         }
         Cache::flush();

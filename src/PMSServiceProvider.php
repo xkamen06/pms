@@ -10,8 +10,9 @@
 namespace xkamen06\pms;
 
 use Illuminate\Support\ServiceProvider;
+use xkamen06\pms\Middlewares\Language;
 
-include __DIR__ . '/Helpers/repositories.php';
+include __DIR__ . '/../helper/repositories.php';
 
 /**
  * Class PMSServiceProvider
@@ -27,10 +28,19 @@ class PMSServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
-        $this->loadRoutesFrom(__DIR__ . '/Routes/main.php');
-        $this->loadViewsFrom(__DIR__ . '/Views', 'pms');
+        // Load migrations from given folder
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        // Load routes from given folder
+        $this->loadRoutesFrom(__DIR__ . '/../routes/main.php');
+        // Load views from given folder with 'pms' namespace
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'pms');
+        // Load translations from given folder with 'pms' namespace
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'pms');
+        // Push middleware to web middleware group
+        app('router')->pushMiddlewareToGroup('web', Language::class);
+        // Publish
         $this->publish();
+        // Register singletons
         $this->registerSingletons();
     }
 
@@ -41,7 +51,14 @@ class PMSServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        /**
+         * You may also merge your own package configuration file with
+         * the application's published copy. This will allow your users
+         * to define only the options they actually want to override
+         * in the published copy of the configuration. To merge the configurations,
+         * use the mergeConfigFrom method within your service provider's register method
+         */
+        $this->mergeConfigFrom(__DIR__.'/../config/singletons.php', 'pms');
     }
 
     /**
@@ -49,11 +66,9 @@ class PMSServiceProvider extends ServiceProvider
      */
     public function publish(): void
     {
-        $this->publishes([__DIR__ . '/Publisher/resources/assets/sass/' => base_path('resources/assets/sass/')]);
-        $this->publishes([__DIR__ . '/Publisher/public/' => base_path('public/')]);
-        $this->publishes([__DIR__ . '/Views/Auth/' => base_path('resources/views/auth/')]);
-        $this->publishes([__DIR__ . '/Configs/' => base_path('config/')]);
-        $this->publishes([__DIR__ . '/Lang' => base_path('resources/lang/')]);
+        $this->publishes([__DIR__ . '/../publisher/resources/sass/' => base_path('resources/sass/')]);
+        $this->publishes([__DIR__ . '/../publisher/public/' => base_path('public/')]);
+        $this->publishes([__DIR__ . '/../publisher/resources/views/Auth/' => base_path('resources/views/auth/')]);
     }
 
     /**

@@ -125,7 +125,7 @@ class UserController
             $user = userRepository()->getUserById($userId);
             return view('pms::User.edit', [
                 'user' => $user,
-                'error' => trans('User.edit.error_user_exist')
+                'error' => trans('pms::User.edit.error_user_exist')
             ]);
         }
         Cache::flush();
@@ -164,7 +164,7 @@ class UserController
         if (strlen($request['newpassword']) < 8) {
             return view('pms::User.changepassword', [
                 'userId' => $userId,
-                'error' => trans('User.change_password.password_minimum_length')
+                'error' => trans('pms::User.change_password.password_minimum_length')
             ]);
         }
         if (userRepository()->updatePassword($userId, $request->all()) !== 'badpassword') {
@@ -173,7 +173,7 @@ class UserController
         }
         return view('pms::User.changepassword', [
             'userId' => $userId,
-            'error' => trans('User.change_password.error_msg_badpassword')
+            'error' => trans('pms::User.change_password.error_msg_badpassword')
         ]);
     }
 
@@ -222,7 +222,7 @@ class UserController
         $status = userRepository()->addUser($request->all());
         if (strlen($request['password']) < 8) {
             return view('pms::User.create', [
-                'error' => trans('User.create.password_minimum_length')
+                'error' => trans('pms::User.create.password_minimum_length')
             ]);
         }
         if ($status === '') {
@@ -231,11 +231,11 @@ class UserController
         }
         if ($status === 'badpassword') {
             return view('pms::User.create', [
-                'error' => trans('User.create.error_msg_badpassword')
+                'error' => trans('pms::User.create.error_msg_badpassword')
             ]);
         }
         return view('pms::User.create', [
-            'error' => trans('User.create.error_msg_user_exist')
+            'error' => trans('pms::User.create.error_msg_user_exist')
         ]);
     }
 }

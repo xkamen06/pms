@@ -7,7 +7,7 @@
  * Date: 2018
  */
 
-namespace App\Notifications;
+namespace xkamen06\pms\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class DeleteUserFromNotification
- * @package App\Notifications
+ * @package xkamen06\pms\Notifications
  */
 class DeleteUserFromNotification extends Notification
 {
@@ -87,25 +87,25 @@ class DeleteUserFromNotification extends Notification
     {
         if ($this->type === 'project') {
             return (new MailMessage)
-                ->line(trans('Notifications.delete_user_from.deleted_from_project')
+                ->line(trans('pms::Notifications.delete_user_from.deleted_from_project')
                     . ' ' . $this->project->getShortcut() . '(' .  $this->project->getFullname() . ')')
-                ->action(trans('Notifications.delete_user_from.go_to_projects'), url('/showproject/'
+                ->action(trans('pms::Notifications.delete_user_from.go_to_projects'), url('/showproject/'
                     . $this->project->getProjectId()))
-                ->line(trans('Notifications.thank_you'));
+                ->line(trans('pms::Notifications.thank_you'));
         } elseif ($this->type === 'team') {
             return (new MailMessage)
-                ->line(trans('Notifications.delete_user_from.deleted_from_team')
+                ->line(trans('pms::Notifications.delete_user_from.deleted_from_team')
                     . ' ' . $this->team->getShortcut() . '(' .  $this->team->getFullname() . ')')
-                ->action(trans('Notifications.delete_user_from.go_to_teams'), url('/showteam/'
+                ->action(trans('pms::Notifications.delete_user_from.go_to_teams'), url('/showteam/'
                     . $this->team->getTeamId()))
-                ->line(trans('Notifications.thank_you'));
+                ->line(trans('pms::Notifications.thank_you'));
         } else {
             return (new MailMessage)
-                ->line(trans('Notifications.delete_user_from.deleted_from_task')
+                ->line(trans('pms::Notifications.delete_user_from.deleted_from_task')
                     . ' ' . $this->task->getName())
-                ->action(trans('Notifications.delete_user_from.go_to_tasks'), url('/showtask/'
+                ->action(trans('pms::Notifications.delete_user_from.go_to_tasks'), url('/showtask/'
                     . $this->task->getTaskId()))
-                ->line(trans('Notifications.thank_you'));
+                ->line(trans('pms::Notifications.thank_you'));
         }
     }
 

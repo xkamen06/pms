@@ -79,14 +79,14 @@ class NewTeamArticleNotification extends Notification
     {
         return (new MailMessage)
                     ->line(
-                        trans('Notifications.new_team_article.user')
+                        trans('pms::Notifications.new_team_article.user')
                         . $this->user->getFirstname() . ' ' . $this->user->getSurname()
-                        . trans('Notifications.new_team_article.add_article_to_team')
+                        . trans('pms::Notifications.new_team_article.add_article_to_team')
                         . $this->team->getShortcut() . ' (' . $this->team->getFullname() . ').')
                     ->action(
-                        trans('Notifications.new_team_article.go_to_article'),
+                        trans('pms::Notifications.new_team_article.go_to_article'),
                         url('/showarticle/' . $this->articleId))
-                    ->line(trans('Notifications.thank_you'));
+                    ->line(trans('pms::Notifications.thank_you'));
     }
 
     /**

@@ -7,7 +7,7 @@
  * Date: 2018
  */
 
-namespace App\Notifications;
+namespace xkamen06\pms\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -16,7 +16,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 /**
  * Class UserInformationNotification
- * @package App\Notifications
+ * @package xkamen06\pms\Notifications
  */
 class UserInformationNotification extends Notification
 {
@@ -67,12 +67,12 @@ class UserInformationNotification extends Notification
     public function toMail($notifiable) : MailMessage
     {
         return (new MailMessage)
-                    ->line(trans('Notifications.UserInformation.login_information'))
-                    ->line(trans('Notifications.UserInformation.email') . $this->email)
-                    ->line(trans('Notifications.UserInformation.password') . $this->password)
-                    ->line(trans('Notifications.UserInformation.change_password'))
-                    ->action(trans('Notifications.UserInformation.go_to_system'), url('/'))
-                    ->line(trans('Notifications.thank_you'));
+                    ->line(trans('pms::Notifications.UserInformation.login_information'))
+                    ->line(trans('pms::Notifications.UserInformation.email') . $this->email)
+                    ->line(trans('pms::Notifications.UserInformation.password') . $this->password)
+                    ->line(trans('pms::Notifications.UserInformation.change_password'))
+                    ->action(trans('pms::Notifications.UserInformation.go_to_system'), url('/'))
+                    ->line(trans('pms::Notifications.thank_you'));
     }
 
     /**

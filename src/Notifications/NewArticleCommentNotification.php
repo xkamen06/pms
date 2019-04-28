@@ -72,14 +72,14 @@ class NewArticleCommentNotification extends Notification
     {
         return (new MailMessage)
             ->line(
-                trans('Notifications.new_comment.user')
+                trans('pms::Notifications.new_comment.user')
                     . $this->user->getFirstname() . ' ' . $this->user->getSurname()
-                    . trans('Notifications.new_comment.add_comment_to_article')
+                    . trans('pms::Notifications.new_comment.add_comment_to_article')
                     . $this->article->getTitle()
                   )
                 ->action('Notifications.new_comment.go_to_article',
                   url('/showarticle/' . $this->article->getArticleId()))
-            ->line(trans('Notifications.thank_you'));
+            ->line(trans('pms::Notifications.thank_you'));
     }
 
     /**

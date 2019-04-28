@@ -7,7 +7,7 @@
  * Date: 2018
  */
 
-namespace App\Notifications;
+namespace xkamen06\pms\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class AddUserToNotification
- * @package App\Notifications
+ * @package xkamen06\pms\Notifications
  */
 class AddUserToNotification extends Notification
 {
@@ -87,25 +87,25 @@ class AddUserToNotification extends Notification
     {
         if ($this->type === 'project') {
             return (new MailMessage)
-                ->line(trans('Notifications.add_user_to.added_to_project')
+                ->line(trans('pms::Notifications.add_user_to.added_to_project')
                     . ' ' . $this->project->getShortcut() . '(' .  $this->project->getFullname() . ')')
-                ->action(trans('Notifications.add_user_to.go_to_project'), url('/showproject/'
+                ->action(trans('pms::Notifications.add_user_to.go_to_project'), url('/showproject/'
                     . $this->project->getProjectId()))
-                ->line(trans('Notifications.thank_you'));
+                ->line(trans('pms::Notifications.thank_you'));
         } elseif ($this->type === 'team') {
             return (new MailMessage)
-                ->line(trans('Notifications.add_user_to.added_to_team')
+                ->line(trans('pms::Notifications.add_user_to.added_to_team')
                     . ' ' . $this->team->getShortcut() . '(' .  $this->team->getFullname() . ')')
-                ->action(trans('Notifications.add_user_to.go_to_team'), url('/showteam/'
+                ->action(trans('pms::Notifications.add_user_to.go_to_team'), url('/showteam/'
                     . $this->team->getTeamId()))
-                ->line(trans('Notifications.thank_you'));
+                ->line(trans('pms::Notifications.thank_you'));
         } else {
             return (new MailMessage)
-                ->line(trans('Notifications.add_user_to.added_to_task')
+                ->line(trans('pms::Notifications.add_user_to.added_to_task')
                     . ' ' . $this->task->getName())
-                ->action(trans('Notifications.add_user_to.go_to_task'), url('/showtask/'
+                ->action(trans('pms::Notifications.add_user_to.go_to_task'), url('/showtask/'
                     . $this->task->getTaskId()))
-                ->line(trans('Notifications.thank_you'));
+                ->line(trans('pms::Notifications.thank_you'));
         }
     }
 

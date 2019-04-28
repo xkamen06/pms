@@ -52,8 +52,8 @@ class UserWasDeletedNotification extends Notification
     public function toMail($notifiable) : MailMessage
     {
         return (new MailMessage)
-                    ->line(trans('Notifications.user_was_deleted.you_were_deleted'))
-                    ->line(trans('Notifications.thank_you'));
+                    ->line(trans('pms::Notifications.user_was_deleted.you_were_deleted'))
+                    ->line(trans('pms::Notifications.thank_you'));
     }
 
     /**

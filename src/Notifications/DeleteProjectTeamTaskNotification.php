@@ -7,7 +7,7 @@
  * Date: 2018
  */
 
-namespace App\Notifications;
+namespace xkamen06\pms\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -16,7 +16,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 /**
  * Class DeleteProjectTeamTaskNotification
- * @package App\Notifications
+ * @package xkamen06\pms\Notifications
  */
 class DeleteProjectTeamTaskNotification extends Notification
 {
@@ -64,21 +64,21 @@ class DeleteProjectTeamTaskNotification extends Notification
     {
         if ($this->type === 'project') {
             return (new MailMessage)
-                ->line(trans('Notifications.delete_project_team_task.deleted_project')
+                ->line(trans('pms::Notifications.delete_project_team_task.deleted_project')
                     . ' ' . $this->name)
-                ->action(trans('Notifications.delete_user_from.go_to_projects'), url('/allprojects'))
-                ->line(trans('Notifications.thank_you'));
+                ->action(trans('pms::Notifications.delete_user_from.go_to_projects'), url('/allprojects'))
+                ->line(trans('pms::Notifications.thank_you'));
         } elseif ($this->type === 'team') {
             return (new MailMessage)
-                ->line(trans('Notifications.delete_project_team_task.deleted_team')
+                ->line(trans('pms::Notifications.delete_project_team_task.deleted_team')
                     . ' ' . $this->name)
-                ->action(trans('Notifications.delete_user_from.go_to_teams'), url('/allteams'))
-                ->line(trans('Notifications.thank_you'));
+                ->action(trans('pms::Notifications.delete_user_from.go_to_teams'), url('/allteams'))
+                ->line(trans('pms::Notifications.thank_you'));
         } else {
             return (new MailMessage)
-                ->line(trans('Notifications.delete_project_team_task.deleted_task')
+                ->line(trans('pms::Notifications.delete_project_team_task.deleted_task')
                     . ' ' . $this->name)
-                ->line(trans('Notifications.thank_you'));
+                ->line(trans('pms::Notifications.thank_you'));
         }
     }
 

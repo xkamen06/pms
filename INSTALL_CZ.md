@@ -101,22 +101,7 @@ přidáme
  
     DEBUGBAR_ENABLED=true
 
-
-#### Jazyky
-
-Přidejte následující do `app/Http/Kernel.php` 
-
-    protected $middlewareGroups = [
-        'web' => [
-                \xkamen06\pms\Middlewares\Language::class,
-        ]
-    ]
-
-##### !!! Pozor - nutne pridat az za posledni middlewaru v poli web !!!
+#### Překlady
 
 Pro pridani jazyku smazat `auth.php` ze slozky `\resources\lang\en\`
-
-Spustit
- 
-    php artisan vendor:publish
      

@@ -181,7 +181,7 @@ class TeamController
             $team = teamRepository()->getTeamById($teamId);
             return view('pms::Team.edit', [
                 'team' => $team,
-                'error' => trans('Team.edit.error_shortcut_exist')
+                'error' => trans('pms::Team.edit.error_shortcut_exist')
             ]);
         }
         Cache::flush();
@@ -210,7 +210,7 @@ class TeamController
        $teamId = teamRepository()->createTeam($request->all());
        if ($teamId === -1) {
            return view('pms::Team.create', [
-               'error' => trans('Team.create.error_shortcut_exist')
+               'error' => trans('pms::Team.create.error_shortcut_exist')
            ]);
        }
         Cache::flush();
