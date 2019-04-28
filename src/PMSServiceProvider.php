@@ -68,7 +68,6 @@ class PMSServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__ . '/../publisher/resources/sass/' => base_path('resources/sass/')]);
         $this->publishes([__DIR__ . '/../publisher/public/' => base_path('public/')]);
-        $this->publishes([__DIR__ . '/../publisher/resources/views/Auth/' => base_path('resources/views/auth/')]);
     }
 
     /**

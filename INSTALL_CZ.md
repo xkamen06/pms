@@ -2,27 +2,17 @@
 
 ## Instalace
 
-Nakopírovat repozitář (xkamen06/pms) do složky `workbench` v kořenovém adresáři
-laravel projetu (pokud neexistuje složka `workbench`, pak je nutné ji vytvořit)
+Do souboru `composer.json` v aplikaci do sekce `require` přidat následující
 
-Do `config/app.php` přidat 
-
-     'providers' => [
-        \xkamen06\pms\PMSServiceProvider::class,
-     ];
-
-Do `composer.json` přidat 
-     
-     "autoload": {
-            "classmap": [
-                "workbench"
-            ],
-        },
-       
+    "xkamen06/pms": "^1.0"
+    
 Spustit následující příkaz 
        
        composer update
-   
+       
+A nebo jednodušeji v hlavní složce aplikace spustit příkaz 
+
+    composer require xkamen06/pms      
    
 ### Pro vytvoření databáze 
 
@@ -33,7 +23,7 @@ Vyplnit databázové údaje v souboru `.env` napřklad takto
     DB_PORT=3306
     DB_DATABASE=PMS_Database
     DB_USERNAME=root
-    DB_PASSWORD=
+    DB_PASSWORD=root
 
 Odebrat migrace z adresáře `/database/migrations`
 
@@ -63,13 +53,12 @@ A zveřejnit soubory co se týkají `xkamen06\pms\PMSServiceProvider`
 
 Obsah `/webpack.mix.js` nahradit 
 
-    mix.sass('resources/assets/sass/main.sass', 'public/css');
+    mix.sass('resources/sass/main.sass', 'public/css');
 
 Spustit příkazy 
 
     npm install
     npm run dev 
-    
     
 #### Cachování 
 
