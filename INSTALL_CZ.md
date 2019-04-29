@@ -1,22 +1,22 @@
 # xkamen06/pms - Project Management System (web information system)
 
-## Instalace
+## Instalace (do čisté Laravel instalace)
 
-Do souboru `composer.json` v aplikaci do sekce `require` přidat následující
+Do souboru `composer.json` v aplikaci, do sekce (objektu) `require` přidat:
 
     "xkamen06/pms": "^1.0"
     
-Spustit příkaz 
+Spustit příkaz: 
        
     composer update
        
-A nebo jednodušeji v hlavním adresáři aplikace spustit příkaz 
+A nebo jednodušeji v hlavním adresáři aplikace spustit příkaz: 
 
     composer require xkamen06/pms      
    
-### Pro vytvoření databáze 
+### Vytvoření databáze 
 
-Vyplnit databázové údaje v souboru `.env` napřklad takto (pokud tak ještě není učiněno)
+Vyplnit databázové údaje v souboru `.env` např9klad takto (pokud tak ještě není učiněno):
 
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -25,51 +25,55 @@ Vyplnit databázové údaje v souboru `.env` napřklad takto (pokud tak ještě 
     DB_USERNAME=root
     DB_PASSWORD=root
 
-Odebrat migrace z adresáře `/database/migrations`
+Odebrat migrace z adresáře `/database/migrations`:
 
-Spustit příkaz 
+Spustit příkaz: 
     
     php artisan migrate
     
-##### Pro vytvoreni testovacich zaznamu v databazi 
+##### Pro vytvoření testovacích záznamů v databázi 
 
-Do `/database/seeds/DatabaseSeeder.php` do metody `run()` přidat 
+Do `/database/seeds/DatabaseSeeder.php` do metody `run()` přidat: 
 
     $this->call(PMSDataSeeder::class); 
 
-Spustit příkaz 
+Spustit příkaz: 
     
     php artisan db:seed
 
+#### Routes
+
+Zakomentovat obsah souboru `/routes/web.php`
+
 #### Styly 
 
-Spustit příkaz 
+Spustit příkaz: 
 
     php artisan vendor:publish
     
 a zvolit možnost "0"    
     
-A zveřejnit soubory co se týkají `xkamen06\pms\PMSServiceProvider`
+A tím zveřejnit soubory co se týkají `xkamen06\pms\PMSServiceProvider`
 
-Obsah `/webpack.mix.js` nahradit 
+Obsah `/webpack.mix.js` nahradit: 
 
     mix.sass('resources/sass/main.sass', 'public/css');
 
-Spustit příkazy 
+Spustit příkazy: 
 
     npm install
     npm run dev 
     
 #### Konfigurace 
 
-Pro zveřejnění konfiguračních souborů spustit příkaz 
+Pro zveřejnění konfiguračních souborů spustit příkaz: 
 (pokud již tak nebylo učiněno v přechozím kroce Styly)
 
     php artisan vendor:publish
     
 a zvolit možnost "0"    
     
-A zveřejnit soubory co se týkají `xkamen06\pms\PMSServiceProvider`
+A tím zveřejnit soubory co se týkají `xkamen06\pms\PMSServiceProvider`
 
 #### Cachování 
     
@@ -91,7 +95,7 @@ Pokud nastává chyba ....neco s connection tak spustíme redis v příkazové �
 
 Debugbar funguje pouze v režimu debug, to jest 
     
-        APP_DEBUG=true
+    APP_DEBUG=true
 
 Pokud chceme aby fungoval debugbar i při vyplém debugu tak do `.env` 
 přidáme
@@ -100,5 +104,5 @@ přidáme
 
 #### Překlady
 
-Pro pridani jazyku smazat `auth.php` ze slozky `\resources\lang\en\`
+Pro přidání jazyku smazat `auth.php` ze složky `\resources\lang\en\`
      
