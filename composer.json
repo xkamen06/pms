@@ -20,7 +20,10 @@
         "psr-4": {
             "xkamen06\\pms\\Controllers\\": "src/Controllers/",
             "xkamen06\\pms\\": "src/"
-        }
+        },
+        "classmap": [
+            "database/"
+        ]
     },
     "extra": {
         "laravel": {

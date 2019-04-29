@@ -51,14 +51,7 @@ class PMSServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        /**
-         * You may also merge your own package configuration file with
-         * the application's published copy. This will allow your users
-         * to define only the options they actually want to override
-         * in the published copy of the configuration. To merge the configurations,
-         * use the mergeConfigFrom method within your service provider's register method
-         */
-        $this->mergeConfigFrom(__DIR__.'/../config/singletons.php', 'pms');
+        //
     }
 
     /**
@@ -68,6 +61,7 @@ class PMSServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__ . '/../publisher/resources/sass/' => base_path('resources/sass/')]);
         $this->publishes([__DIR__ . '/../publisher/public/' => base_path('public/')]);
+        $this->publishes([__DIR__ . '/../publisher/config/singletons.php' => config_path('pms/singletons.php')]);
     }
 
     /**
@@ -80,9 +74,9 @@ class PMSServiceProvider extends ServiceProvider
 
         try {
             if (driverRepository()->getDriver() === 'item') {
-                $items = config('singletons.items');
+                $items = config('pms.singletons.items');
             } else {
-                $items = config('singletons.eloquents');
+                $items = config('pms.singletons.eloquents');
             }
             foreach ($items as $interface => $class) {
                 $this->app->singleton($interface, $class);

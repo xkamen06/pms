@@ -6,17 +6,17 @@ Do souboru `composer.json` v aplikaci do sekce `require` přidat následující
 
     "xkamen06/pms": "^1.0"
     
-Spustit následující příkaz 
+Spustit příkaz 
        
-       composer update
+    composer update
        
-A nebo jednodušeji v hlavní složce aplikace spustit příkaz 
+A nebo jednodušeji v hlavním adresáři aplikace spustit příkaz 
 
     composer require xkamen06/pms      
    
 ### Pro vytvoření databáze 
 
-Vyplnit databázové údaje v souboru `.env` napřklad takto
+Vyplnit databázové údaje v souboru `.env` napřklad takto (pokud tak ještě není učiněno)
 
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -60,11 +60,18 @@ Spustit příkazy
     npm install
     npm run dev 
     
+#### Konfigurace 
+
+Pro zveřejnění konfiguračních souborů spustit příkaz 
+(pokud již tak nebylo učiněno v přechozím kroce Styly)
+
+    php artisan vendor:publish
+    
+a zvolit možnost "0"    
+    
+A zveřejnit soubory co se týkají `xkamen06\pms\PMSServiceProvider`
+
 #### Cachování 
-
-Spustit příkaz 
-
-    composer require predis/predis
     
 Pokud chceme aby fungovalo cachování tak v `.env` nastavíme 
 
@@ -81,6 +88,7 @@ Pokud nastává chyba ....neco s connection tak spustíme redis v příkazové �
     redis-serve&
 
 #### Debugbar
+
 Debugbar funguje pouze v režimu debug, to jest 
     
         APP_DEBUG=true
